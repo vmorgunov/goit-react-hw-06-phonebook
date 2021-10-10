@@ -1,12 +1,12 @@
 import React from 'react';
 import { Label, Input } from './Filter.styled';
 import { connect } from 'react-redux';
-import contactsAction from 'redux/contacts/contacts-action';
+import { changeFilter } from 'redux/contacts/contacts-action';
 
 const Filter = ({ value, onChange }) => {
   return (
     <Label>
-      Filter contacts by name{' '}
+      Filter contacts by name
       <Input type="text" value={value} onChange={onChange} />
     </Label>
   );
@@ -17,7 +17,7 @@ const mapStateToProps = ({ contacts }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onChange: e => dispatch(contactsAction.changeFilter(e.currentTarget.value)),
+  onChange: e => dispatch(changeFilter(e.currentTarget.value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);
